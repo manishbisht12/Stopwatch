@@ -1,0 +1,112 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #000000, #808080, #ffffff); /* Black to Gray to White Gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  animation: backgroundAnimate 5s ease-in-out infinite; /* Animation for background gradient */
+}
+
+.App {
+  background-color: rgba(255, 255, 255, 0.8); /* Slight white background with transparency */
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 250px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards; /* Fade-in animation for the App container */
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+button {
+  background: linear-gradient(45deg, #000000, #808080, #ffffff); /* Gradient for buttons */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  margin: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-position 0.4s ease-in-out, box-shadow 0.3s ease;
+  background-size: 200% 200%; /* Set the background size to allow the gradient to move */
+}
+
+button:hover {
+  transform: scale(1.1);
+  background-position: 100% 0; /* Animates the gradient */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: scale(1);
+  background-position: 0 0; /* Reset gradient on active */
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button + button {
+  margin-left: 10px;
+}
+
+/* Animations */
+
+/* Fade-in animation for App */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Background animation for the gradient */
+@keyframes backgroundAnimate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+@media (min-width: 600px) {
+  .App {
+    width: 300px;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  button {
+    padding: 14px 28px;
+    font-size: 1.2rem;
+  }
+}
